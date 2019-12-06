@@ -7,7 +7,7 @@
  * @Author: DavidDuong
  * @@Create Date: Wednesday, December 4th 2019, 8:43:54 pm
  * @@Modified By: DavidDuong
- * @@Modify Date: Friday, December 6th 2019, 2:31:45 pm
+ * @@Modify Date: Friday, December 6th 2019, 3:39:15 pm
  */
 
 namespace Magepow\Nextpre\Block;
@@ -28,6 +28,8 @@ class Nextpre extends \Magento\Framework\View\Element\Template
      */
     protected $_coreRegistry = null;
 
+    private $scopeConfig;
+
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -39,10 +41,12 @@ class Nextpre extends \Magento\Framework\View\Element\Template
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         array $data = []
     ) {
         $this->_coreRegistry = $registry;
         $this->_objectManager = $objectManager;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -108,6 +112,11 @@ class Nextpre extends \Magento\Framework\View\Element\Template
             return $next_product;
         }
         return false;
+    }
+
+    public function getConfigure($value = 'active')
+    {
+        return $this->scopeConfig->getValue('nextpre/general/'.$value, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
 }

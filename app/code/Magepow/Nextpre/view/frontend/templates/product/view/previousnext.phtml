@@ -7,15 +7,16 @@
  * @Author: DavidDuong
  * @@Create Date: Wednesday, December 4th 2019, 8:43:54 pm
  * @@Modified By: DavidDuong
- * @@Modify Date: Friday, December 6th 2019, 2:38:32 pm
+ * @@Modify Date: Friday, December 6th 2019, 3:41:40 pm
  */ 
 
 $_product = $block->getProduct();
 
 $prev_product = $block->getPrevProduct($_product);
 $next_product = $block->getNextProduct($_product);
+$enable = $block->getConfigure();
 ?>
-<?php if($prev_product || $next_product): ?>
+<?php if($enable && ($prev_product || $next_product)): ?>
     <div class="product-next-prev">
         <?php if($next_product): ?>
             <a class="product-next" title="Next" href="<?php echo $next_product->getProductUrl(); ?>"><span>></span></a>
