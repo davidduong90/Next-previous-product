@@ -4,7 +4,7 @@ Installation Guide
 --------------------
 
 1. Copy /app folder to your magento location.
-2. Run command lines in SSH: 
+2. Run command lines in SSH: <br/>
     php bin/magento setup:upgrade<br/>
     php bin/magento setup:static-content:deploy -f<br/>
     php bin/magento cache:flush<br/>
