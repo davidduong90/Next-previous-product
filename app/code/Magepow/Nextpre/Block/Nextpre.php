@@ -7,7 +7,7 @@
  * @Author: DavidDuong
  * @@Create Date: Wednesday, December 4th 2019, 8:43:54 pm
  * @@Modified By: DavidDuong
- * @@Modify Date: Thursday, December 5th 2019, 10:01:09 am
+ * @@Modify Date: Friday, December 6th 2019, 2:31:45 pm
  */
 
 namespace Magepow\Nextpre\Block;
@@ -64,8 +64,10 @@ class Nextpre extends \Magento\Framework\View\Element\Template
     public function getCategoryProductIds($current_category) {
         $category_products = $current_category->getProductCollection()
             ->addAttributeToSelect('*')
-            ->addAttributeToFilter('is_saleable', 1, 'left')
-            ->addAttributeToSort('position','asc');
+            ->addAttributeToFilter('status', array('eq' => 1))
+            ->addAttributeToFilter('visibility', array('eq' => 4))
+            ->addAttributeToSort('position', 'asc');
+            
         $cat_prod_ids = $category_products->getAllIds();
         
         return $cat_prod_ids;

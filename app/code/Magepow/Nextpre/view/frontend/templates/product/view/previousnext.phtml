@@ -1,3 +1,4 @@
+<?php 
 /*
  * Magepow
  * @category: Magepow
@@ -6,23 +7,21 @@
  * @Author: DavidDuong
  * @@Create Date: Wednesday, December 4th 2019, 8:43:54 pm
  * @@Modified By: DavidDuong
- * @@Modify Date: Thursday, December 5th 2019, 9:58:46 am
+ * @@Modify Date: Friday, December 6th 2019, 2:33:13 pm
  */
 
-<?php 
-    $_product = $block->getProduct();
+$_product = $block->getProduct();
 
-    $prev_product = $block->getPrevProduct($_product);
-    $next_product = $block->getNextProduct($_product);
+$prev_product = $block->getPrevProduct($_product);
+$next_product = $block->getNextProduct($_product);
 ?>
 <?php if($prev_product || $next_product): ?>
     <div class="product-next-prev">
-        <?php if($prev_product): ?>
-            <a class="product-next" title="Next" href="<?php echo $prev_product->getProductUrl(); ?>"><span><</span></a>
-        <?php endif; ?>
-
         <?php if($next_product): ?>
-            <a class="product-prev" title="Previous" href="<?php echo $next_product->getProductUrl(); ?>"><span>></span></a>
+            <a class="product-next" title="Next" href="<?php echo $next_product->getProductUrl(); ?>"><span>></span></a>
+        <?php endif; ?>
+        <?php if($prev_product): ?>
+            <a class="product-prev" title="Previous" href="<?php echo $prev_product->getProductUrl(); ?>"><span><</span></a>
         <?php endif; ?>
     </div> 
 <?php endif; ?>
