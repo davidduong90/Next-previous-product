@@ -13,6 +13,9 @@ Installation Guide
 
 ![alt text](https://github.com/davidduong90/Next-previous-product/blob/master/app/code/Magepow/Nextpre/media/preview.gif)
 
+Configure:
+STORES > Settings > Configuration > MAGEPOW > Next Previous Product > General Options > Enabled	> select Yes/No > Save Config
+
 Notes: If you are not sure about what to do or get any problem then feel free to contact us via ticket: https://alothemes.com/ticket/
 
 Thanks,
