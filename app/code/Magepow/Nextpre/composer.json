@@ -1,8 +1,8 @@
 {
-    "name": "magepow/ajaxcart",
-    "description": "Magepow Ajax Add To Cart",
+    "name": "magepow/nextpre",
+    "description": "Magento 2 Previous/Next Product Page",
     "require": {
-        "php": "~5.5.0|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
+        "php": "~5.5.0|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0|~7.3.0"
     },
     "suggest": {
         "magento/module-catalog": "100.1.*"
