@@ -21,7 +21,7 @@ Configure:
 
 STORES > Settings > Configuration > MAGEPOW > Next Previous Product > General Options > Enabled	> select Yes/No > Save Config
 
-Notes: If you are not sure about what to do or get any problem then feel free to contact us via ticket: https://alothemes.com/ticket/
+Notes: If you are not sure about what to do or get any problem then feel free to contact us via email: 	contact@alothemes.com
 
 Thanks,
 magepow.com
