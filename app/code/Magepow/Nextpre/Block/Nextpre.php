@@ -96,9 +96,16 @@ class Nextpre extends \Magento\Framework\View\Element\Template
             return false;
         $cat_prod_ids = $this->getCategoryProductIds($current_category);
         $_pos = array_search($product->getId(), $cat_prod_ids);
-        if (isset($cat_prod_ids[$_pos - 1])) {
-            $prev_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos - 1]);
-            return $prev_product;
+        if($this->getConfigure('selectsort') == 0){
+            if (isset($cat_prod_ids[$_pos + 1])) {
+                $prev_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos + 1]);
+                return $prev_product;
+            }
+        }else{
+            if (isset($cat_prod_ids[$_pos - 1])) {
+                $prev_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos - 1]);
+                return $prev_product;
+            }
         }
         return false;
     }
@@ -110,9 +117,16 @@ class Nextpre extends \Magento\Framework\View\Element\Template
             return false;
         $cat_prod_ids = $this->getCategoryProductIds($current_category);
         $_pos = array_search($product->getId(), $cat_prod_ids);
-        if (isset($cat_prod_ids[$_pos + 1])) {
-            $next_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos + 1]);
-            return $next_product;
+        if($this->getConfigure('selectsort') == 0){
+            if (isset($cat_prod_ids[$_pos - 1])) {
+                $next_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos - 1]);
+                return $next_product;
+            }
+        }else{
+            if (isset($cat_prod_ids[$_pos + 1])) {
+                $next_product = $this->getModel('Magento\Catalog\Model\Product')->load($cat_prod_ids[$_pos + 1]);
+                return $next_product;
+            }
         }
         return false;
     }

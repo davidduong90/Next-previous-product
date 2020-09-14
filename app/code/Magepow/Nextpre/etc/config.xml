@@ -4,6 +4,7 @@
         <nextpre>
             <general>
                 <active>1</active>
+                <selectsort>0</selectsort>
             </general>
         </nextpre>
     </default>

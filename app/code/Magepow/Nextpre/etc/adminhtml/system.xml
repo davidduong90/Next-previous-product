@@ -15,6 +15,10 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Choose 'Yes' to enable module.]]></comment>
                 </field>
+                <field id="selectsort" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort position</label>
+                    <source_model>Magepow\Nextpre\Model\Config\Selectsort</source_model>
+                </field>
             </group>
         </section>
     </system>
