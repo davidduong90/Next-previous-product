@@ -77,14 +77,21 @@ class Nextpre extends \Magento\Framework\View\Element\Template
         return $cat_prod_ids;
     }
 
-
-    public function getPrevProduct($product) {
+    public function getCurrentCategory($product){
         $current_category = $product->getCategory();
         if(!$current_category) {
             foreach($product->getCategoryCollection() as $parent_cat) {
                 $current_category = $parent_cat;
             }
         }
+        if(!$current_category)
+            return false;
+        return $current_category;
+    }
+
+    public function getPrevProduct($product) {
+        $current_category = $this->getCurrentCategory($product);
+
         if(!$current_category)
             return false;
         $cat_prod_ids = $this->getCategoryProductIds($current_category);
@@ -97,12 +104,8 @@ class Nextpre extends \Magento\Framework\View\Element\Template
     }
     
     public function getNextProduct($product) {
-        $current_category = $product->getCategory();
-        if(!$current_category) {
-            foreach($product->getCategoryCollection() as $parent_cat) {
-                $current_category = $parent_cat;
-            }
-        }
+        $current_category = $this->getCurrentCategory($product);
+        
         if(!$current_category)
             return false;
         $cat_prod_ids = $this->getCategoryProductIds($current_category);

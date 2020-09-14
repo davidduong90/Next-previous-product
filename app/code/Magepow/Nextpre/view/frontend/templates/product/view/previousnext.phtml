@@ -14,15 +14,29 @@ $_product = $block->getProduct();
 
 $prev_product = $block->getPrevProduct($_product);
 $next_product = $block->getNextProduct($_product);
+$current_category = $block->getCurrentCategory($_product);
+$name_category = $current_category->getName();
+$url_category = $current_category->getUrl();
 $enable = $block->getConfigure();
 ?>
 <?php if($enable && ($prev_product || $next_product)): ?>
     <div class="product-next-prev">
+    	
+            <?php 
+                if($name_category){
+                    ?>
+                    <div class="back_category">
+                        <a href="<?php echo $url_category; ?>"><?php echo __('Back to:') ?> <?php echo $name_category; ?></a>
+                    </div>
+                    <?php
+                }
+            ?>
+    	
         <?php if($next_product): ?>
-            <a class="product-next" title="Next" href="<?php echo $next_product->getProductUrl(); ?>"><span>></span></a>
+            <a class="product-next" title="<?php echo __('Next') ?>" href="<?php echo $next_product->getProductUrl(); ?>"><span>></span></a>
         <?php endif; ?>
         <?php if($prev_product): ?>
-            <a class="product-prev" title="Previous" href="<?php echo $prev_product->getProductUrl(); ?>"><span><</span></a>
+            <a class="product-prev" title="<?php echo __('Previous') ?>" href="<?php echo $prev_product->getProductUrl(); ?>"><span><</span></a>
         <?php endif; ?>
     </div> 
 <?php endif; ?>
